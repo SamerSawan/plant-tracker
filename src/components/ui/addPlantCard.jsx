@@ -10,7 +10,7 @@ import {
   export default function AddPlantCard({ onAddPlant }) {
     return (
       <Card
-        className="flex flex-col items-center justify-center border-2 border-softGreen h-full bg-opacity-0 cursor-pointer hover:bg-softGreen/20 transition"
+        className="w-[380px] flex flex-col items-center justify-center border-3 border-softGreen h-full bg-opacity-0 cursor-pointer hover:bg-softGreen/20 transition"
         onClick={onAddPlant} // Make the entire card clickable
       >
         <CardHeader className="w-full flex flex-col items-center">

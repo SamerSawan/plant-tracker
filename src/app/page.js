@@ -8,6 +8,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import AddPlantCard from '@/components/ui/addPlantCard';
+import CardFlip from '@/components/ui/cardFlip';
+
+//TODO: 
+// Add a button to delete plant
+// Add a plant details page
+// Custom plant art for each type of plant
+// Modal to add plant
+// Login page and supabase stuff
 
 const succulent = new Plant(
   "Succulent",
@@ -34,33 +42,40 @@ const bonsai = new Plant(
   5
 )
 
-const plants = [succulent]
+const plants = [succulent, cactus, bonsai]
 
 export default function Page() {
-  // Make a basic web page for a plant tracker app
-  // with a title and a description
   return (
-    <div className="flex flex-col items-center justify-center p-24 bg-warmBeige">
-      <h1 className="text-4xl font-bold text-mutedBrown mb-4">Plant Tracker</h1>
-      <Carousel opts={{
-        align: "start",
-      }} className="w-full">
-        <CarouselContent>
-          {plants.map((plant, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-              <PlantCard plant={plant} />
-            </CarouselItem>
-          ))}
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+    <div className="flex flex-col items-center justify-center p-24 bg-warmBeige min-h-screen">
+      <h1 className="text-4xl font-bold text-mutedBrown mb-4">Green Thumb: Plant Tracker</h1>
+        <Carousel opts={{
+          align: "start",
+        }} className="md:w-full lg:w-4/5 p-6 min-h-[70vh] flex items-center">
+          <CarouselContent className="min-h-[65vh]">
+            {plants.map((plant, index) => (
+              <CarouselItem key={index} className="flex items-center justify-center md:basis-1/2 lg:basis-1/3">
+                <div className="h-[82%]">
+                  <PlantCard plant={plant} />
+                </div>
+                
+              </CarouselItem>
+            ))}
+            <CarouselItem className="flex items-center justify-center md:basis-1/2 lg:basis-1/3">
+            <div className="h-[82%]">
             <AddPlantCard plant={bonsai} />
-          </CarouselItem>
-        </CarouselContent>
-        <CarouselPrevious className="bg-softGreen"/>
-        <CarouselNext className="bg-softGreen"/>
-      </Carousel>
-      <button className="fixed bottom-8 right-8 bg-goldenYellow text-mutedBrown p-4 rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:bg-goldenYellow/80 transition hover:cursor-pointer">
-        +
-      </button>
+            </div>
+              
+            </CarouselItem>
+            <CarouselItem className="flex items-center justify-center md:basis-1/2 lg:basis-1/3">
+            <div className="h-[82%]">
+              <CardFlip />
+            </div>
+              
+            </CarouselItem>
+          </CarouselContent>
+          <CarouselPrevious className="bg-softGreen"/>
+          <CarouselNext className="bg-softGreen"/>
+        </Carousel>
     </div>
   )
 }
