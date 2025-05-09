@@ -1,3 +1,6 @@
+import { redirect } from 'next/navigation'
+import { createClient } from '@/utils/supabase/server';
+
 import PlantCard from '@/components/ui/plantcard';
 import Plant from '@/lib/models/Plant';
 import {
@@ -44,7 +47,15 @@ const bonsai = new Plant(
 
 const plants = [succulent, cactus, bonsai]
 
-export default function Page() {
+export default async function Page() {
+
+  const supabase = await createClient()
+
+  const {data, error} = await supabase.auth.getUser()
+  if (error || !data?.user) {
+    redirect('/login')
+  }
+
   return (
     <div className="flex flex-col items-center justify-center p-24 bg-warmBeige min-h-screen">
       <h1 className="text-4xl font-bold text-mutedBrown mb-4">Green Thumb: Plant Tracker</h1>

@@ -1,6 +1,5 @@
 'use client';
 import { GalleryVerticalEnd } from "lucide-react"
-import { useState } from "react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -11,6 +10,7 @@ import Link from 'next/link'
 
 export function LoginForm({
   className,
+  login,
   ...props
 }) {
   return (
@@ -35,13 +35,13 @@ export function LoginForm({
           <div className="flex flex-col gap-6">
             <div className="grid gap-3">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="me@example.com" required />
+              <Input id="email" name="email" type="email" placeholder="me@example.com" required />
             </div>
             <div className="grid gap-3">
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" placeholder="" required />
+              <Input id="password" name="password" type="password" placeholder="" required />
             </div>
-            <Button type="submit" className="w-full hover:cursor-pointer">
+            <Button formAction={login} type="submit" className="w-full hover:cursor-pointer">
               Login
             </Button>
           </div>
