@@ -17,12 +17,11 @@ const CardFlip = () => {
   }
 
   const succulent = new Plant(
+    "/icons/succulent.png",
     "Succulent",
     "Succulent",
     "2 weeks",
     "indirect sunlight",
-    "4 inches",
-    12
   )
 
   return (

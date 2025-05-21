@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-export default function PlantCard({ plant}) {
+export default function PlantCard({ plant }) {
   console.log(plant); // Should log the `bonsai` object
   console.log(plant.timeSinceLastWatering());
   return (
@@ -20,7 +20,7 @@ export default function PlantCard({ plant}) {
       </CardHeader>
       <CardContent className="flex flex-col items-center">
         <Image 
-          src="/pixel_art_plant.png"
+          src={plant.image}
           alt="Pixel Art Plant"
           width={250}
           height={250}
@@ -28,7 +28,6 @@ export default function PlantCard({ plant}) {
         <div className="w-full text-mutedBrown">
           <p> Water every {plant.waterFrequency}. Time since last watering: {plant.timeSinceLastWatering()}</p>
           <p> Prefers {plant.sunlightPreference} </p>
-          <p> {plant.height} tall and has {plant.leafCount} leaves. </p>
         </div>
       </CardContent>
       <CardFooter className="flex items-center justify-center">

@@ -1,11 +1,10 @@
 export default class Plant {
-    constructor(name, species, waterFrequency, sunlightPreference, height, leafCount) {
+    constructor(image, name, species, waterFrequency, sunlightPreference) {
+      this.image = image;
       this.name = name;
       this.species = species;
       this.waterFrequency = waterFrequency;
       this.sunlightPreference = sunlightPreference;
-      this.height = height;
-      this.leafCount = leafCount;
       this.lastWatered = new Date();
     }
   
