@@ -16,7 +16,7 @@ const CardFlip = ({plant}) => {
   }
 
   return (
-    <div className="flip-card w-[380px] h-full overflow-visible" onClick={handleFlip}>
+    <div className="flip-card w-[300px] 2xl:w-[380px] h-full overflow-visible" onClick={handleFlip}>
       <motion.div
         className="flip-card-inner z-10"
         initial={false}

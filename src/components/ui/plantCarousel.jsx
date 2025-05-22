@@ -21,18 +21,18 @@ const initialPlants = [
 
 export default function PlantCarousel({ iPlants }) {
   const data = use(iPlants)
-  const initialPlants = data.map(
-    (row) =>
-      new Plant(
-        `${row.image}`,
-        row.name,
-        row.species,
-        `${row.watering_interval_days} days`,
-        row.sunlight,
-        row.last_watered,
-        row.time_watered
-      )
-  )
+//   const initialPlants = data.map(
+//     (row) =>
+//       new Plant(
+//         `${row.image}`,
+//         row.name,
+//         row.species,
+//         `${row.watering_interval_days} days`,
+//         row.sunlight,
+//         row.last_watered,
+//         row.time_watered
+//       )
+//   )
   const [plants, setPlants] = useState(initialPlants)
 
   const handleAddPlant = (img, name, species, watering, light) => {
@@ -49,11 +49,11 @@ export default function PlantCarousel({ iPlants }) {
   
 
   return (
-    <Carousel opts={{ align: "start" }} className="md:w-full lg:w-4/5 3xl:w-3/5 min-h-[70vh] p-6 flex justify-center items-center border-2">
-      <CarouselContent className="min-h-[65vh] 3xl:min-h-[50vh] w-full -ml-4">
+    <Carousel opts={{ align: "start" }} className="md:w-full lg:w-4/5 4xl:w-3/5 min-h-[70vh] p-6 flex justify-center items-center border-2">
+      <CarouselContent className="min-h-[70vh] lg:min-h-[65vh] 4xl:min-h-[50vh] w-full -ml-4">
         {plants.map((plant, index) => (
           <CarouselItem key={index} className={`pl-4 flex items-center justify-center ${basis}`}>
-            <div className="h-[82%]">
+            <div className="h-full 2xl:h-[82%]">
               <CardFlip plant={plant} />
             </div>
           </CarouselItem>

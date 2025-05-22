@@ -11,7 +11,7 @@ import {
 
 export default function PlantCard({ plant }) {
   return (
-    <Card className="w-[380px] h-full bg-softGreen border border-softGreen">
+    <Card className="w-[300px] 2xl:w-[380px] h-full bg-softGreen border border-softGreen">
       <CardHeader>
         <CardTitle className="text-mutedBrown"> {plant.name} </CardTitle>
         <CardDescription className=""> Here's how your {plant.species} is doing </CardDescription>
