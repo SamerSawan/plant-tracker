@@ -2,10 +2,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card } from './card';
-import Plant from '@/lib/models/Plant';
 import PlantCard from './plantcard';
 
-const CardFlip = () => {
+const CardFlip = ({plant}) => {
   const [flipped, setFlipped] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -15,14 +14,6 @@ const CardFlip = () => {
       setIsAnimating(true);
     }
   }
-
-  const succulent = new Plant(
-    "/icons/succulent.png",
-    "Succulent",
-    "Succulent",
-    "2 weeks",
-    "indirect sunlight",
-  )
 
   return (
     <div className="flip-card w-[380px] h-full overflow-visible" onClick={handleFlip}>
@@ -34,7 +25,7 @@ const CardFlip = () => {
         onAnimationComplete={() => setIsAnimating(false)}
       >
         <div className="flip-card-front h-full">
-            <PlantCard plant={succulent}/>
+            <PlantCard plant={plant}/>
         </div>
         <div className="flip-card-back h-full">
             <Card className="h-full bg-softGreen border border-softGreen flex items-center justify-center rounded-md">

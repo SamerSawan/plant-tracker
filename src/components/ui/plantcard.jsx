@@ -10,8 +10,6 @@ import {
 } from "@/components/ui/card"
 
 export default function PlantCard({ plant }) {
-  console.log(plant); // Should log the `bonsai` object
-  console.log(plant.timeSinceLastWatering());
   return (
     <Card className="w-[380px] h-full bg-softGreen border border-softGreen">
       <CardHeader>
